@@ -73,6 +73,9 @@ else
   echo "✅ Flutter already installed"
 fi
 
+pkg install dart -y
+
+
 # ==============================
 # Install Android SDK
 # ==============================
