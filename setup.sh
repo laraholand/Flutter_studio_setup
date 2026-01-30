@@ -7,6 +7,7 @@ echo " Changed directory to script location: $SCRIPT_DIR"
 
 echo " Updating Termux..."
 pkg update && pkg upgrade -y
+pkg install git nodejs-lts -y
 
 echo " Enabling allow-external-apps..."
 TERMUX_DIR="$HOME/.termux"
@@ -106,4 +107,5 @@ echo " Flutter SDK: $PREFIX/opt/flutter"
 echo "Android SDK: $ANDROID_SDK"
 echo " lsp-ws-proxy: $SCRIPT_DIR/lsp-ws-proxy"
 echo "AcodeX server: running in background"
+npm install --global vscode-html-languageserver-bin
 axs
