@@ -107,5 +107,4 @@ echo " Flutter SDK: $PREFIX/opt/flutter"
 echo "Android SDK: $ANDROID_SDK"
 echo " lsp-ws-proxy: $SCRIPT_DIR/lsp-ws-proxy"
 echo "AcodeX server: running in background"
-npm install --global vscode-html-languageserver-bin
 axs
