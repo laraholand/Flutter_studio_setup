@@ -101,10 +101,6 @@ else
   echo " lsp-ws-proxy not found in script directory"
 fi
 
-flutter doctor
-
 echo " Flutter SDK: $PREFIX/opt/flutter"
 echo "Android SDK: $ANDROID_SDK"
 echo " lsp-ws-proxy: $SCRIPT_DIR/lsp-ws-proxy"
-echo "AcodeX server: running in background"
-axs
