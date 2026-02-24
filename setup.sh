@@ -89,7 +89,7 @@ EOF
 source "$SHELL_RC"
 echo "Environment variables configured"
 
-flutter config --flutter-sdk "$PREFIX/opt/flutter"
+#flutter config --flutter-sdk "$PREFIX/opt/flutter"
 #flutter config --android-sdk "$ANDROID_SDK"
 
 #yes | flutter doctor --android-licenses
