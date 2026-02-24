@@ -94,13 +94,19 @@ echo "Environment variables configured"
 
 #yes | flutter doctor --android-licenses
 
+# Make lsp-ws-proxy executable and add it to PATH
 if [ -f "$SCRIPT_DIR/lsp-ws-proxy" ]; then
   chmod +x "$SCRIPT_DIR/lsp-ws-proxy"
-  echo " lsp-ws-proxy ready at: $SCRIPT_DIR/lsp-ws-proxy"
+  # Add SCRIPT_DIR to PATH if not already
+  if ! echo "$PATH" | grep -q "$SCRIPT_DIR"; then
+    export PATH="$SCRIPT_DIR:$PATH"
+    # Also append to shell rc to persist
+    echo "export PATH=\"$SCRIPT_DIR:\$PATH\"" >> "$SHELL_RC"
+  fi
+  echo "lsp-ws-proxy ready at: $SCRIPT_DIR/lsp-ws-proxy"
 else
-  echo " lsp-ws-proxy not found in script directory"
+  echo "lsp-ws-proxy not found in script directory: $SCRIPT_DIR"
 fi
 
-echo " Flutter SDK: $PREFIX/opt/flutter"
-#echo "Android SDK: $ANDROID_SDK"
-echo " lsp-ws-proxy: $SCRIPT_DIR/lsp-ws-proxy"
+# Show Flutter SDK location
+echo "Flutter SDK: $PREFIX/opt/flutter"
