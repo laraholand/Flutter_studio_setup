@@ -52,14 +52,14 @@ else
   echo " Flutter already installed"
 fi
 
-pkg install dart -y
+#pkg install dart -y
 
-ANDROID_SDK="$PREFIX/opt/android-sdk"
-if [ ! -d "$ANDROID_SDK" ]; then
-  pkg install android-sdk -y
-else
-  echo " Android SDK already installed"
-fi
+# ANDROID_SDK="$PREFIX/opt/android-sdk"
+#if [ ! -d "$ANDROID_SDK" ]; then
+#  pkg install android-sdk -y
+#else
+#  echo " Android SDK already installed"
+#fi
 
 echo "🔧 Setting environment variables..."
 SHELL_RC="$HOME/.bashrc"
@@ -72,15 +72,15 @@ export FLUTTER_ROOT=\$PREFIX/opt/flutter
 export PATH=\$FLUTTER_ROOT/bin:\$PATH
 
 # ==== Android SDK ====
-export ANDROID_HOME=\$PREFIX/opt/android-sdk
-export ANDROID_SDK_ROOT=\$ANDROID_HOME
-export PATH=\$ANDROID_HOME/platform-tools:\$PATH
-export PATH=\$ANDROID_HOME/cmdline-tools/latest/bin:\$PATH
+#export ANDROID_HOME=\$PREFIX/opt/android-sdk
+#export ANDROID_SDK_ROOT=\$ANDROID_HOME
+#export PATH=\$ANDROID_HOME/platform-tools:\$PATH
+#export PATH=\$ANDROID_HOME/cmdline-tools/latest/bin:\$PATH
 
 # ==== NDK & CMake ====
-export ANDROID_NDK_HOME=\$ANDROID_HOME/ndk/29.0.14206865
-export CMAKE_HOME=\$ANDROID_HOME/cmake/4.1.2/bin
-export PATH=\$CMAKE_HOME:\$PATH
+#export ANDROID_NDK_HOME=\$ANDROID_HOME/ndk/29.0.14206865
+#export CMAKE_HOME=\$ANDROID_HOME/cmake/4.1.2/bin
+#export PATH=\$CMAKE_HOME:\$PATH
 
 # ==== lsp-ws-proxy ====
 export LSP_WS_PROXY="$SCRIPT_DIR/lsp-ws-proxy"
@@ -90,9 +90,9 @@ source "$SHELL_RC"
 echo "Environment variables configured"
 
 flutter config --flutter-sdk "$PREFIX/opt/flutter"
-flutter config --android-sdk "$ANDROID_SDK"
+#flutter config --android-sdk "$ANDROID_SDK"
 
-yes | flutter doctor --android-licenses
+#yes | flutter doctor --android-licenses
 
 if [ -f "$SCRIPT_DIR/lsp-ws-proxy" ]; then
   chmod +x "$SCRIPT_DIR/lsp-ws-proxy"
@@ -102,5 +102,5 @@ else
 fi
 
 echo " Flutter SDK: $PREFIX/opt/flutter"
-echo "Android SDK: $ANDROID_SDK"
+#echo "Android SDK: $ANDROID_SDK"
 echo " lsp-ws-proxy: $SCRIPT_DIR/lsp-ws-proxy"
